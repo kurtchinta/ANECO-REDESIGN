@@ -616,19 +616,6 @@ onMounted(() => {
   }
 });
 
-// Toggle dark mode
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
-  
-  // Apply dark mode class to document
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-};
-
 // User data
 const user = ref({
   firstName: 'Bernardo',

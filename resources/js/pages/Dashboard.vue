@@ -849,11 +849,6 @@
     return Math.floor(Math.random() * 150) + 50;
   };
 
-  const refreshDashboard = () => {
-    // Refresh dashboard data
-    console.log('Refreshing dashboard data...');
-  };
-
   const openPaymentModal = () => {
     showPaymentModal.value = true;
   };

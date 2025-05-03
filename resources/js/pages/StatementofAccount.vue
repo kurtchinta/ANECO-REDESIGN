@@ -575,7 +575,7 @@
     </template>
     
     <script setup>
-    import { ref, computed, onMounted } from 'vue';
+    import { ref, onMounted } from 'vue';
     
     // User data
     const user = ref({
