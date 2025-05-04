@@ -2,9 +2,9 @@
 
 use App\Models\User;
 
-test('guests are redirected to the login page', function () {
+test('guests can access the dashboard without login', function () {
     $response = $this->get('/dashboard');
-    $response->assertRedirect('200');
+    $response->assertStatus(200); // Check for 200 OK status, since you want guests to access it without redirection
 });
 
 test('authenticated users can visit the dashboard', function () {
@@ -12,5 +12,5 @@ test('authenticated users can visit the dashboard', function () {
     $this->actingAs($user);
 
     $response = $this->get('/dashboard');
-    $response->assertStatus(200);
+    $response->assertStatus(200); // Check for 200 OK status
 });
