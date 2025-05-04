@@ -1,12 +1,17 @@
-// vite.config.ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 export default defineConfig({
-  root: '.',
   plugins: [vue()],
+  root: './resources',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './resources'),
+    },
   }
 })
