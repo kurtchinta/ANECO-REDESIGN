@@ -1,28 +1,17 @@
-import vue from '@vitejs/plugin-vue';
-import path from 'path';
-import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 export default defineConfig({
-  root: 'resources',
+  root: 'resources', // your frontend is in 'resources'
   build: {
-    outDir: '../dist',
-    emptyOutDir: true,
+    outDir: '../dist', // Vercel expects this
+    emptyOutDir: true
   },
-  plugins: [
-    vue({
-      template: {
-        transformAssetUrls: {
-          base: null,
-          includeAbsolute: false,
-        },
-      },
-    }),
-    tailwindcss(),
-  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'resources/js'),
-    },
+    }
   },
-});
+  plugins: [vue()]
+})
