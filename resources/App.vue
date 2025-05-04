@@ -4,7 +4,17 @@
     </div>
   </template>
   
+  <script>
   import { createApp } from 'vue'
-  import App from './App.vue'
+  
+  export default {
+    name: 'App',
+  }
   
   createApp(App).mount('#app')
+  </script>
+  
+  <style scoped>
+  /* You can add styles here */
+  </style>
+  
