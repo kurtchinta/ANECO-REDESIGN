@@ -7,6 +7,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
+        // Laravel plugin is still included but won't interfere on Vercel since it's just input handling
         laravel({
             input: ['resources/js/app.ts'],
             ssr: 'resources/js/ssr.ts',
@@ -26,8 +27,20 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname, './resources/js'),
             'ziggy-js': process.env.NODE_ENV === 'development'
-                ? resolve(__dirname, 'vendor/tightenco/ziggy') // Use local vendor during development
-                : 'ziggy-js', // Use NPM package in production
+                ? resolve(__dirname, 'vendor/tightenco/ziggy')
+                : 'ziggy-js',
         },
     },
+    // Needed so Vercel sees this as a static Vue build
+    build: {
+        outDir: 'dist',
+        emptyOutDir: true,
+        rollupOptions: {
+            input: path.resolve(__dirname, 'resources/js/app.ts'),
+        },
+    },
+    // Vercel hint for frontend static deployment
+    optimizeDeps: {
+        include: ['vue'],
+    }
 });
