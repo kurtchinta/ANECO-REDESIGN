@@ -683,7 +683,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="js">
 import { ref, computed, watch } from 'vue';
 
 // Form data

@@ -591,7 +591,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="js">
 import { ref, computed, onMounted } from 'vue';
 
 // Dark mode state

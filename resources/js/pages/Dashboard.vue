@@ -725,8 +725,7 @@
       </div>
     </div>
   </template>
-
-<script setup>
+<script setup lang="js">
   import { ref, computed } from 'vue';
 
   // User data

@@ -11,6 +11,10 @@ export default defineConfigWithVueTs(
     },
     {
         rules: {
+            // Disable the vue/block-lang rule that expects the 'lang' attribute in <script>
+            'vue/block-lang': 'off',
+
+            // Optional: Other custom rules you can adjust
             'vue/multi-word-component-names': 'off',
             '@typescript-eslint/no-explicit-any': 'off',
         },
