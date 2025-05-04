@@ -1,9 +1,4 @@
 {
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ]
-  }
-  
+  "buildCommand": "vite build",
+  "outputDirectory": "dist"
+}
