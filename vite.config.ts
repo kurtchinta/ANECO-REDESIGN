@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue';
-import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from 'vite';
-import { resolve } from 'node:path';
 
 export default defineConfig({
   root: 'resources',
@@ -10,7 +10,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [
-    tailwindcss(),
     vue({
       template: {
         transformAssetUrls: {
@@ -19,10 +18,11 @@ export default defineConfig({
         },
       },
     }),
+    tailwindcss(),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './resources/js'),
+      '@': path.resolve(__dirname, 'resources/js'),
     },
   },
 });
