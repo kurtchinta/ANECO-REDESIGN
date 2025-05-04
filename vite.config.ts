@@ -25,7 +25,9 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './resources/js'),
-            'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
+            'ziggy-js': process.env.NODE_ENV === 'development'
+                ? resolve(__dirname, 'vendor/tightenco/ziggy') // Use local vendor during development
+                : 'ziggy-js', // Use NPM package in production
         },
     },
 });
